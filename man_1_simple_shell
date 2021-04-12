@@ -1,0 +1,48 @@
+\.TH man 1 "15 April 2021" "1.0" "Simple-shell man page"
+.SH NAME
+.B hsh
+- Linux shell program recreation that will provide the user with a user interface
+.SH SYNOPSIS
+$ ./hsh
+.SH DESCRIPTION
+the simple_shell is a command line interpreter (a.k.a. "shell"), in the tradition of the first UNIX shell written by Ken Thompson in 1971. This shell is intentionally minimalistic, but includes the basic functionality of a *nix command line user interface.
+.SH Compiling
+gcc -Wall -Wextra -Werror -pedantic *.c
+.SH OPTION
+Built-ins
+.br
+	env
+- It will display the current environment
+.br
+	exit
+- It will exit from the mini-shell.
+.SH EXAMPLES
+$ ls
+.br
+Display the list of files in the current dir
+.br
+
+
+$ /bin/pwd
+.br
+Displays display the current directory address
+.br
+
+$ exit or Ctrl + D
+.br
+Exits from the shell.
+.SH ENVIRONMENT
+
+Examples of Environment Variables
+
+     PWD
+               The current directory address
+     ENV
+               Display the environment variables.
+               
+.SH SEE ALSO
+.I sh(1), execve(2), signal(2), exit(2), isatty(3).
+.SH Bugs
+No known bugs. Yet.
+.SH AUTHOR
+Raimundo Gallino - Jorge Tuset
