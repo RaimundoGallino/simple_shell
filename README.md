@@ -1,7 +1,4 @@
 <h1 align="center"> Simple Shell Project! </h1>
-<p align="center">
-  <img width="250" height="250" src="file:///Users/raimundogallino/Desktop/seashellParticlerRender4.png"/>
-</p>
 
 This simple shell was entirely crafted by our programming hands with the purposes of expanding our knowledge on C and linux OP, and of course to pass the curse. We explore most of the functionalities of the a shell of a linux OP including the most commonly used "ls", "pwd", "cd" and more. In this readme we will explain how, install it, how to run it and all the posibilites available within the boundaries  of our simple shell.
 
