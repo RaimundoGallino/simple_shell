@@ -2,7 +2,7 @@
 
 ![markdown poster by Raimundo Gallino](/Extras/seashellParticlerRender4.png)
 
-This simple shell was entirely crafted by our programming hands with the purposes of expanding our knowledge on C and linux OP, and of course to pass the curse. We explore most of the functionalities of the a shell of a linux OP including the most commonly used "ls", "pwd", "cd" and more. In this readme we will explain how, install it, how to run it and all the posibilites available within the boundaries  of our simple shell.
+This simple shell was entirely crafted by our programming hands with the purposes of expanding our knowledge on C and linux OS, and of course to pass the curse. We explore most of the functionalities of the a shell of a linux OS including the most commonly used "ls", "pwd", "cd" and more. In this readme we will explain how, install it, how to run it and all the posibilites available within the boundaries  of our simple shell.
 
 
 # Files included
