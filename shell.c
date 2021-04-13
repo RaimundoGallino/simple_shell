@@ -16,12 +16,12 @@ int main(int argc, char *argv[])
 
 	(void) argc;
 	name.shellname = argv[0];
+	name.shellname = name.shellname;
 
 	signal(SIGINT, stop_ctrl);
 
 	while (1)
 	{
-		
 		if (isatty(STDIN_FILENO) == 1)
 			write(1, ":$hellcito ", 11);
 
@@ -40,7 +40,6 @@ int main(int argc, char *argv[])
 		{
 			reading(strtok(string, "\n"));
 		}
-
 	}
 	return (0);
 }
