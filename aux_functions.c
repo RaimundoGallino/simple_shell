@@ -13,7 +13,7 @@ int not_empty(char *input_buffer)
 
 	while (input_buffer[i])
 	{
-		if (input_buffer[i] != ' ')
+		if (input_buffer[i] != ' ' && input_buffer[i] != '\t')
 			break;
 		i++;
 	}

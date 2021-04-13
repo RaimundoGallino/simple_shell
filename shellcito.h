@@ -39,4 +39,6 @@ char *_strcat(char *dest, char *src);
 
 void stop_ctrl(int s);
 
+void changing_tab(char *string);
+
 #endif /* SHELLCITO_H */
