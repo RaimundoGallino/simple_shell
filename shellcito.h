@@ -12,6 +12,8 @@
 
 extern char **environ;
 
+char *shellname;
+
 void *pathfinder(char *cmd);
 
 int reading(char *s);

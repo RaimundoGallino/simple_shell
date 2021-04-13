@@ -3,17 +3,19 @@
 /**
  * main - main function of shell program.
  * @argc: int saving arguments
- * @argv: char storing arguments (UNUSED)
+ * @argv: char storing arguments
  * Return: 0
  */
 
-int main(int argc, char *argv[] __attribute__((unused)))
+int main(int argc, char *argv[])
 {
 	size_t buffer = 0;
 	char *string = NULL;
 	ssize_t line = 0;
 
 	(void) argc;
+	shellname = argv[0];
+	
 	signal(SIGINT, SIG_IGN);
 
 	while (1)
@@ -104,6 +106,8 @@ int execute(char *cmd[])
 	path = pathfinder(command);
 	if (path == NULL && _strcmp(command, "cd") != 0)
 	{
+		write(2, shellname, _strlen(shellname));
+		write(2, " :1 ", 5);
 		write(2, command, _strlen(command));
 		write(2, ": command not found\n", 20);
 		return (0);
