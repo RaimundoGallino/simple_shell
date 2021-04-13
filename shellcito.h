@@ -38,4 +38,6 @@ char *_strcpy(char *dest, char *src);
 
 char *_strcat(char *dest, char *src);
 
+void stop_ctrl(int s);
+
 #endif /* SHELLCITO_H */

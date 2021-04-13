@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
 	(void) argc;
 	shellname = argv[0];
 
-	signal(SIGINT, SIG_IGN);
-
 	while (1)
 	{
+		signal(SIGINT, stop_ctrl);
+
 		if (isatty(STDIN_FILENO) == 1)
 			write(1, ":$hellcito ", 11);
 

@@ -1,5 +1,15 @@
 #include "shellcito.h"
 
+
+void stop_ctrl(int s)
+{
+    (void)s;
+
+    signal(SIGINT, stop_ctrl);
+    write(1, "\n", 1);
+    write(1, ":$hellcito ", 11);
+}
+
 /**
  * _getenv - gets the enviroment variable sepcified by the name.
  * @n: name of the variable to get access
