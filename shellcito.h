@@ -10,9 +10,16 @@
 #include<sys/stat.h>
 #include <dirent.h>
 
+/**
+ * struct _name - name of the shell
+ * @shellname: char holding shell of name.
+ *
+ * Description: A shell needs a good name.
+ */
+
 struct _name
 {
-    char *shellname;
+	char *shellname;
 };
 
 extern char **environ;

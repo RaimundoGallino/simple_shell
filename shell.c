@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 /**
  * reading - parser whatever you just wrote on the shell
  * @s: statement to be read
+ * @shellname: name of the shell (previously declared on struct)
  * Return: 0.
  */
 
@@ -77,6 +78,7 @@ int reading(char *s, char *shellname)
 /**
  * execute - Runs function
  * @cmd: command to be ran.
+ * @shellname: name of the shell (previously declared on struct)
  * Return: 0
  */
 

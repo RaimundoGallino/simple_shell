@@ -1,13 +1,18 @@
 #include "shellcito.h"
 
+/**
+ * stop_ctrl - Stops ctrl+c from doing its thing.
+ * @s: string to be called. Rendered null and cast into the V O I D.
+ * Return: V O I D
+ */
 
 void stop_ctrl(int s)
 {
-    (void)s;
+	(void)s;
 
-    signal(SIGINT, stop_ctrl);
-    write(1, "\n", 1);
-    write(1, ":$hellcito ", 11);
+	signal(SIGINT, stop_ctrl);
+	write(1, "\n", 1);
+	write(1, ":$hellcito ", 11);
 }
 
 /**
