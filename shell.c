@@ -71,6 +71,7 @@ int reading(char *s, char *shellname)
 		token = strtok(NULL, " ");
 	}
 	command_arr[i] = NULL;
+	free(s);
 	return (execute(command_arr, shellname));
 }
 
