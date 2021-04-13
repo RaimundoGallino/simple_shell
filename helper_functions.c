@@ -7,7 +7,6 @@ void stop_ctrl(int s)
 
     signal(SIGINT, stop_ctrl);
     write(1, "\n", 1);
-    write(1, ":$hellcito ", 11);
 }
 
 /**
