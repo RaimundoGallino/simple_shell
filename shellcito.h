@@ -10,6 +10,10 @@
 #include<sys/stat.h>
 #include <dirent.h>
 
+struct _name{
+    char *shellname;
+};
+
 extern char **environ;
 
 void *pathfinder(char *cmd);

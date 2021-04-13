@@ -1,7 +1,6 @@
 #include "shellcito.h"
 
-char *shellname;
-
+struct _name name;
 /**
  * main - main function of shell program.
  * @argc: int saving arguments
@@ -16,7 +15,7 @@ int main(int argc, char *argv[])
 	ssize_t line = 0;
 
 	(void) argc;
-	shellname = argv[0];
+	name.shellname = argv[0];
 
 	signal(SIGINT, stop_ctrl);
 
@@ -109,7 +108,7 @@ int execute(char *cmd[])
 	path = pathfinder(command);
 	if (path == NULL && _strcmp(command, "cd") != 0)
 	{
-		write(2, shellname, _strlen(shellname));
+		write(2, name.shellname, _strlen(name.shellname));
 		write(2, " :1 ", 5);
 		write(2, command, _strlen(command));
 		write(2, ": not found\n", 12);
