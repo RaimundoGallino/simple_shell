@@ -27,6 +27,8 @@ int main(int argc, char *argv[])
 		{
 			if (isatty(STDIN_FILENO) == 1)
 				write(1, "\n", 1);
+				
+			free(string);
 			break;
 		}
 		if (*string == '\0')
@@ -72,7 +74,6 @@ int reading(char *s, char *shellname)
 		token = strtok(NULL, " ");
 	}
 	command_arr[i] = NULL;
-	free(s);
 	return (execute(command_arr, shellname));
 }
 
