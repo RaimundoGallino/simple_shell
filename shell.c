@@ -26,8 +26,6 @@ int main(int argc, char *argv[])
 			write(1, ":$hellcito ", 11);
 
 		line = getline(&string, &buffer, stdin);
-		if (*string == '\0')
-			continue;
 
 		if (line == -1)
 		{
@@ -35,7 +33,10 @@ int main(int argc, char *argv[])
 				write(1, "\n", 1);
 			break;
 		}
-		else if (not_empty(string) == -1)
+		if (*string == '\0')
+			continue;
+
+		if (not_empty(string) == -1)
 		{
 			reading(strtok(string, "\n"));
 		}
