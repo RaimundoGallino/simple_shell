@@ -17,7 +17,7 @@ This simple shell was entirely crafted by our programming hands with the purpose
 - First you need to open the terminal and select the folder you want to save the files needed to run the shell.
 - Then run this command in the terminal to clone the repository to the local directory selected:
 ```ssh
-$ git clone "el link"
+$ git clone https://github.com/RaimundoGallino/simple_shell.git
 ```
  - Compile the files with gcc using this flags (after the "-o" flag you will be naming the executable file, so name it as you wish):
 ```ssh
