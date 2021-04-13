@@ -53,7 +53,6 @@ int reading(char *s)
 	int i = 0;
 
 	token = strtok(s, " ");
-
 	if (_strcmp(s, "exit") == 0)
 	{
 		free(s);
@@ -95,25 +94,23 @@ int execute(char *cmd[])
 		if (dir == NULL)
 			return (chdir(_getenv("HOME")));
 		if (chdir(dir) != 0)
+		{
 			perror(dir);
+			return (1);
+		}
 		else
 			return (chdir(dir));
 	}
-
 	path = pathfinder(command);
-
 	if (path == NULL && _strcmp(command, "cd") != 0)
 	{
 		write(2, command, _strlen(command));
 		write(2, ": command not found\n", 20);
 		return (0);
 	}
-
 	child = fork();
-
 	if (child != 0)
 		wait(&status);
-
 	else if (child == 0 && _strcmp(command, "cd") != 0)
 	{
 		execve(path, cmd, environ);
@@ -121,6 +118,5 @@ int execute(char *cmd[])
 		exit(1);
 	}
 	free(path);
-
 	return (0);
 }
