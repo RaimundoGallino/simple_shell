@@ -1,6 +1,5 @@
 #include "shellcito.h"
 
-struct _name name;
 /**
  * main - main function of shell program.
  * @argc: int saving arguments
@@ -13,6 +12,7 @@ int main(int argc, char *argv[])
 	size_t buffer = 0;
 	char *string = NULL;
 	ssize_t line = 0;
+	struct _name name;
 
 	(void) argc;
 	name.shellname = argv[0];
@@ -91,6 +91,7 @@ int execute(char *cmd[])
 	char *command = NULL;
 	int status;
 	const char *dir = cmd[1];
+	struct _name name;
 
 	command = cmd[0];
 	if (_strcmp(command, "cd") == 0)
