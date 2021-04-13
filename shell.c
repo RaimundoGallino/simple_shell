@@ -12,11 +12,10 @@ int main(int argc, char *argv[])
 	size_t buffer = 0;
 	char *string = NULL;
 	ssize_t line = 0;
-	struct _name name;
+	struct _name *name;
 
 	(void) argc;
-	name.shellname = argv[0];
-	name.shellname = name.shellname;
+	name->shellname = argv[0];
 
 	signal(SIGINT, stop_ctrl);
 
@@ -91,7 +90,7 @@ int execute(char *cmd[])
 	char *command = NULL;
 	int status;
 	const char *dir = cmd[1];
-	struct _name name;
+	struct _name *name;
 
 	command = cmd[0];
 	if (_strcmp(command, "cd") == 0)
@@ -109,7 +108,7 @@ int execute(char *cmd[])
 	path = pathfinder(command);
 	if (path == NULL && _strcmp(command, "cd") != 0)
 	{
-		write(2, name.shellname, _strlen(name.shellname));
+		write(2, name->shellname, _strlen(name->shellname));
 		write(2, " :1 ", 5);
 		write(2, command, _strlen(command));
 		write(2, ": not found\n", 12);
