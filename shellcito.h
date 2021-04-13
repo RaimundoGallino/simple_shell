@@ -1,11 +1,6 @@
 #ifndef SHELLCITO_H
 #define SHELLCITO_H
 
-#define RED printf("\033[0;31m");
-#define BLUE printf("\033[0;34m");
-#define GREEN printf("\033[0;32m");
-#define RESET printf("\033[0m");
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>

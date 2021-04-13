@@ -1,5 +1,12 @@
 #include "shellcito.h"
 
+/**
+ * main - main function of shell program.
+ * @argc: int saving arguments
+ * @argv: char storing arguments (UNUSED)
+ * Return: 0
+ */
+
 int main(int argc, char *argv[] __attribute__((unused)))
 {
 	size_t buffer = 0;
@@ -11,7 +18,6 @@ int main(int argc, char *argv[] __attribute__((unused)))
 
 	while (1)
 	{
-		RESET;
 		if (isatty(STDIN_FILENO) == 1)
 			write(1, ":$hellcito ", 11);
 
@@ -34,6 +40,12 @@ int main(int argc, char *argv[] __attribute__((unused)))
 	return (0);
 }
 
+/**
+ * reading - parser whatever you just wrote on the shell
+ * @s: statement to be read
+ * Return: 0.
+ */
+
 int reading(char *s)
 {
 	char *token = NULL;
@@ -45,14 +57,14 @@ int reading(char *s)
 	if (_strcmp(s, "exit") == 0)
 	{
 		free(s);
-		exit(2);	
+		exit(2);
 	}
 
 	if (_strcmp(s, "env") == 0)
 	{
-		return(_printenv());
+		return (_printenv());
 	}
-	
+
 	while (token)
 	{
 		command_arr[i] = token;
@@ -62,6 +74,12 @@ int reading(char *s)
 	command_arr[i] = NULL;
 	return (execute(command_arr));
 }
+
+/**
+ * execute - Runs function
+ * @cmd: command to be ran.
+ * Return: 0
+ */
 
 int execute(char *cmd[])
 {
@@ -75,18 +93,18 @@ int execute(char *cmd[])
 	if (_strcmp(command, "cd") == 0)
 	{
 		if (dir == NULL)
-			return(chdir(_getenv("HOME")));
+			return (chdir(_getenv("HOME")));
 		if (chdir(dir) != 0)
 			perror(dir);
 		else
-			return(chdir(dir));
+			return (chdir(dir));
 	}
 
 	path = pathfinder(command);
 
 	if (path == NULL && _strcmp(command, "cd") != 0)
 	{
-		write (2, command, _strlen(command));
+		write(2, command, _strlen(command));
 		write(2, ": command not found\n", 20);
 		return (0);
 	}

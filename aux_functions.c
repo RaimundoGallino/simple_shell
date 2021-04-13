@@ -26,7 +26,7 @@ int not_empty(char *input_buffer)
 /**
  * _printenv - prints the enviroments variables
  *
- * @void 
+ * @void
  * Return: 0
  */
 

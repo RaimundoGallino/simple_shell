@@ -2,27 +2,31 @@
 
 /**
  * _getenv - gets the enviroment variable sepcified by the name.
- * @name: name of the variable to get access
+ * @n: name of the variable to get access
  * Return: Always 0.
  */
 
-char *_getenv(const char *name)
+char *_getenv(const char *n)
 {
-	char **envPtr;/* pointer into list of environ. vars. */
-	char *charPtr;/* point into one environment variable */
-	const char *namePtr;/* pointer into name */
+	char **ePtr;/* pointer into list of environ. vars. */
+	char *cPtr;/* point into one environment variable */
+	const char *nPtr;/* pointer into name */
 
-	for (envPtr = environ; *envPtr != NULL; envPtr++) {
-		for (charPtr = *envPtr, namePtr = name; *charPtr == *namePtr; charPtr++, namePtr++) {
-			if (*charPtr == '=') {
+	for (ePtr = environ; *ePtr != NULL; ePtr++)
+	{
+		for (cPtr = *ePtr, nPtr = n; *cPtr == *nPtr; cPtr++, nPtr++)
+		{
+			if (*cPtr == '=')
+			{
 				break;
 			}
 		}
-		if ((*charPtr == '=') && (*namePtr == 0)) {
-			return charPtr+1;
+		if ((*cPtr == '=') && (*nPtr == 0))
+		{
+			return (cPtr + 1);
 		}
 	}
-	return(0);
+	return (0);
 }
 
 /**
@@ -87,32 +91,25 @@ void *pathfinder(char *cmd)
 {
 	char *path = _strdup(_getenv("PATH"));
 	int i = 0, j = 0;
-	char *path_tok;
-	char *path_array[100];
-	char *s2 = cmd;
-	char *aux = NULL;
+	char *path_tok, *path_array[100];
+	char *s2 = cmd, *aux = NULL;
 	char *new_path = NULL;
 	struct stat buf;
 
 	path_tok = strtok(path, ":");
-
 	new_path = malloc(sizeof(char) * 100);
-
 	if (_getenv("PATH")[0] == ':')
 		if (stat(cmd, &buf) == 0)
 			return (_strdup(cmd));
 
 	if (stat(cmd, &buf) == 0)
 		return (_strdup(cmd));
-
 	while (path_tok != NULL)
 	{
 		path_array[i++] = path_tok;
 		path_tok = strtok(NULL, ":");
 	}
-
 	path_array[i] = '\0';
-
 	for (j = 0; path_array[j];)
 	{
 		aux = strtok(s2, "\n");
@@ -120,7 +117,6 @@ void *pathfinder(char *cmd)
 		_strcat(new_path, "/");
 		_strcat(new_path, aux);
 		_strcat(new_path, "\0");
-
 		if (stat(new_path, &buf) == 0)
 		{
 			free(path);
@@ -132,5 +128,5 @@ void *pathfinder(char *cmd)
 	}
 	free(path);
 	free(new_path);
-	return(0);
+	return (0);
 }
