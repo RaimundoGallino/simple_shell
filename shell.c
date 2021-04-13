@@ -1,5 +1,7 @@
 #include "shellcito.h"
 
+char *shellname;
+
 /**
  * main - main function of shell program.
  * @argc: int saving arguments
