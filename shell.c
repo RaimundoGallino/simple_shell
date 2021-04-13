@@ -31,6 +31,8 @@ int main(int argc, char *argv[])
 			free(string);
 			break;
 		}
+		changing_tab(string);
+		
 		if (*string == '\0')
 			continue;
 
