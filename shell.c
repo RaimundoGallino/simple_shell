@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
 	(void) argc;
 	shellname = argv[0];
-	
+
 	signal(SIGINT, SIG_IGN);
 
 	while (1)
@@ -109,7 +109,7 @@ int execute(char *cmd[])
 		write(2, shellname, _strlen(shellname));
 		write(2, " :1 ", 5);
 		write(2, command, _strlen(command));
-		write(2, ": command not found\n", 20);
+		write(2, ": not found\n", 12);
 		return (0);
 	}
 	child = fork();
