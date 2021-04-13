@@ -10,7 +10,8 @@
 #include<sys/stat.h>
 #include <dirent.h>
 
-struct _name{
+struct _name
+{
     char *shellname;
 };
 
