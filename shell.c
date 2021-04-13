@@ -12,10 +12,7 @@ int main(int argc, char *argv[])
 	size_t buffer = 0;
 	char *string = NULL;
 	ssize_t line = 0;
-	struct _name *name;
-
 	(void) argc;
-	name->shellname = argv[0];
 
 	signal(SIGINT, stop_ctrl);
 
@@ -37,7 +34,7 @@ int main(int argc, char *argv[])
 
 		if (not_empty(string) == -1)
 		{
-			reading(strtok(string, "\n"));
+			reading(strtok(string, "\n"), argv[0]);
 		}
 	}
 	return (0);
@@ -49,7 +46,7 @@ int main(int argc, char *argv[])
  * Return: 0.
  */
 
-int reading(char *s)
+int reading(char *s, char *shellname)
 {
 	char *token = NULL;
 	char *command_arr[100];
@@ -74,7 +71,7 @@ int reading(char *s)
 		token = strtok(NULL, " ");
 	}
 	command_arr[i] = NULL;
-	return (execute(command_arr));
+	return (execute(command_arr, shellname));
 }
 
 /**
@@ -83,14 +80,13 @@ int reading(char *s)
  * Return: 0
  */
 
-int execute(char *cmd[])
+int execute(char *cmd[], char *shellname)
 {
 	char *path = NULL;
 	pid_t child;
 	char *command = NULL;
 	int status;
 	const char *dir = cmd[1];
-	struct _name *name;
 
 	command = cmd[0];
 	if (_strcmp(command, "cd") == 0)
@@ -108,7 +104,7 @@ int execute(char *cmd[])
 	path = pathfinder(command);
 	if (path == NULL && _strcmp(command, "cd") != 0)
 	{
-		write(2, name->shellname, _strlen(name->shellname));
+		write(2, shellname, _strlen(shellname));
 		write(2, " :1 ", 5);
 		write(2, command, _strlen(command));
 		write(2, ": not found\n", 12);

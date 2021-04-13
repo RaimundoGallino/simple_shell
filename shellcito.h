@@ -19,11 +19,11 @@ extern char **environ;
 
 void *pathfinder(char *cmd);
 
-int reading(char *s);
+int reading(char *s, char *shellname);
 
 int not_empty(char *input_buffer);
 
-int execute(char *cmd[]);
+int execute(char *cmd[], char *shellname);
 
 char *_getenv(const char *name);
 
