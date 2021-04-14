@@ -164,5 +164,5 @@ void *pathfinder(char *cmd)
 	free(path_array);
 	free(path);
 	free(new_path);
-	return (127);
+	return (0);
 }
