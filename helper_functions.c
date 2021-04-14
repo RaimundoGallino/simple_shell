@@ -116,11 +116,20 @@ void *pathfinder(char *cmd)
 	path_tok = strtok(path, ":");
 	
 	if (_getenv("PATH")[0] == ':')
+	{
 		if (stat(cmd, &buf) == 0)
+		{
+			free(path_array);
+			free(path);
 			return (_strdup(cmd));
-
+		}
+	}
 	if (stat(cmd, &buf) == 0)
+	{
+		free(path_array);
+		free(path);
 		return (_strdup(cmd));
+	}
 	while (path_tok != NULL)
 	{
 		path_array[i++] = path_tok;

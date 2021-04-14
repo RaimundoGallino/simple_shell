@@ -59,7 +59,6 @@ int reading(char *s, char *shellname)
 	int ret;
 	int count = count_spaces(s);
 	
-
 	command_arr = malloc(sizeof(char *) * (count + 1));
 
 	token = strtok(s, " ");
