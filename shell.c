@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 	char *string = NULL;
 	ssize_t line = 0;
 	int status = 0;
+	char *cleaned_string;
 	(void) argc;
 
 	signal(SIGINT, stop_ctrl);
@@ -39,7 +40,8 @@ int main(int argc, char *argv[])
 
 		if (not_empty(string) == -1)
 		{
-			status = reading(strtok(string, "\n"), argv[0]);
+			cleaned_string = clean_spaces(string);
+			status = reading(strtok(cleaned_string, "\n"), argv[0]);
 		}
 	}
 	return (status);
@@ -88,6 +90,7 @@ int reading(char *s, char *shellname)
 		free(s);
 	}
 	command_arr[i] = NULL;
+	free(s);
 
 	ret = execute(command_arr, shellname);
 	i = 0;

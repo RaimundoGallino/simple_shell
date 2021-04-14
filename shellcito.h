@@ -47,4 +47,6 @@ int count_spaces( char *string);
 
 int count_paths( char *string);
 
+char *clean_spaces(char *buffer);
+
 #endif /* SHELLCITO_H */
