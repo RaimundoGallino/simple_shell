@@ -19,7 +19,7 @@ int reading(char *s, char *shellname);
 
 int not_empty(char *input_buffer);
 
-int execute(char *cmd[], char *shellname);
+int execute(char *cmd, char *shellname);
 
 char *_getenv(const char *name);
 

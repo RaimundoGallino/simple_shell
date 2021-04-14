@@ -54,8 +54,14 @@ int main(int argc, char *argv[])
 int reading(char *s, char *shellname)
 {
 	char *token = NULL;
-	char *command_arr[100];
+	char *command_arr;
 	int i = 0;
+	command_arr = malloc(sizeof(s));
+	if (command_arr = NULL)
+	{
+		free(s);
+		free(command_arr);
+	}
 
 	token = strtok(s, " ");
 	if (_strcmp(s, "exit") == 0)
@@ -77,6 +83,7 @@ int reading(char *s, char *shellname)
 	}
 	command_arr[i] = NULL;
 	return (execute(command_arr, shellname));
+	
 }
 
 /**
@@ -86,7 +93,7 @@ int reading(char *s, char *shellname)
  * Return: 0
  */
 
-int execute(char *cmd[], char *shellname)
+int execute(char *cmd, char *shellname)
 {
 	char *path = NULL;
 	pid_t child;
@@ -95,6 +102,7 @@ int execute(char *cmd[], char *shellname)
 	const char *dir = cmd[1];
 
 	command = cmd[0];
+	free(cmd);
 	if (_strcmp(command, "cd") == 0)
 	{
 		if (dir == NULL)
