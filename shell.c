@@ -58,13 +58,7 @@ int reading(char *s, char *shellname)
 	int i = 0;
 	
 	command_arr = malloc(sizeof(char *) * (count_spaces(s)) + 1);
-
-	if (command_arr == NULL)
-	{
-		free(s);
-		free(command_arr);
-	}
-
+	*command_arr = NULL;
 	token = strtok(s, " ");
 	if (_strcmp(s, "exit") == 0)
 	{
@@ -84,7 +78,11 @@ int reading(char *s, char *shellname)
 		i++;
 		token = strtok(NULL, " ");
 	}
-	
+	if (command_arr == NULL)
+	{
+		free(s);
+		free(command_arr);
+	}
 	command_arr[i] = NULL;
 	return (execute(command_arr, shellname));
 	
