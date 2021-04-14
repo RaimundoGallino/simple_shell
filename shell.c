@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 			break;
 		}
 		changing_tab(string);
-		
+
 		if (*string == '\0')
 			continue;
 
@@ -61,7 +61,7 @@ int reading(char *s, char *shellname)
 	if (_strcmp(s, "exit") == 0)
 	{
 		free(s);
-		exit(2);
+		exit(-1);
 	}
 
 	if (_strcmp(s, "env") == 0)
@@ -123,7 +123,7 @@ int execute(char *cmd[], char *shellname)
 	{
 		execve(path, cmd, environ);
 		perror("Error:");
-		exit(1);
+		exit(-1);
 	}
 	free(path);
 	return (0);
