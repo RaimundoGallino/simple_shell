@@ -45,4 +45,6 @@ void changing_tab(char *string);
 
 int count_spaces( char *string);
 
+int count_paths( char *string);
+
 #endif /* SHELLCITO_H */

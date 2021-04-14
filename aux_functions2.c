@@ -37,3 +37,22 @@ int count_spaces( char *string)
     }
     return(count + 1);
 }
+/**
+ * count_spaces - count spaces
+ * @string: input string passed
+ * Return: count
+ */
+
+int count_paths( char *string)
+{
+    int len = _strlen(string);
+    int i = 0;
+    int count = 0;
+
+    for (; i < len; i++)
+    {
+        if (string[i] == ':' && string[i + 1] != ':' && string[i + 1] != '\n')
+            count += 1;
+    }
+    return(count + 1);
+}

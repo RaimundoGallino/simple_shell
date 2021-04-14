@@ -106,13 +106,18 @@ void *pathfinder(char *cmd)
 {
 	char *path = _strdup(_getenv("PATH"));
 	int i = 0, j = 0;
-	char *path_tok, *path_array[100];
+	char *path_tok, **path_array;
 	char *s2 = cmd, *aux = NULL;
 	char *new_path = NULL;
 	struct stat buf;
+	int count = count_paths(path);
+
+	path_array = malloc(sizeof(char *) * (count + 1));
+	if (path_array == NULL)
+		free(path_array);
 
 	path_tok = strtok(path, ":");
-	new_path = malloc(sizeof(char) * 100);
+	new_path = malloc(sizeof(char) * (count + 1));
 	if (_getenv("PATH")[0] == ':')
 		if (stat(cmd, &buf) == 0)
 			return (_strdup(cmd));
@@ -135,12 +140,16 @@ void *pathfinder(char *cmd)
 		if (stat(new_path, &buf) == 0)
 		{
 			free(path);
+			free(path_array);
 			return (new_path);
 		}
 		else
 			new_path[0] = 0;
 		j++;
 	}
+	while (i < count)
+		free(path_array[i++]);
+	free(path_array);
 	free(path);
 	free(new_path);
 	return (0);
