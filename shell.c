@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 			reading(strtok(string, "\n"), argv[0]);
 		}
 	}
-	return (0);
+	return (127);
 }
 
 /**
