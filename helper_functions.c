@@ -104,7 +104,6 @@ char *_strcat(char *dest, char *src)
  */
 void *pathfinder(char *cmd)
 {
-<<<<<<< HEAD
 	char *path = _strdup(_getenv("PATH"));
 	int i = 0, j = 0, count = count_paths(path), count_path = 0;
 	char *path_tok, **path_array, *s2 = cmd, *aux = NULL, *new_path = NULL;
@@ -151,34 +150,19 @@ void *pathfinder(char *cmd)
 		_strcat(new_path, aux);
 		_strcat(new_path, "\0");
 		if (stat(new_path, &buf) == 0)
-=======
-	const char *path = "PATH";
-	char *value, *tok;
-	char *dir[8];
-	struct stat statbuff;
-	int num = 0;
-
-	value = _getenv(path);
-	tok = strtok(value, TOK_DELIM);
-	do{
-		dir[num] = NULL;
-		dir[num] = _strdup(tok);
-		dir[num] = strcat(dir[num], cmd);
-		if (cmd[0] == '/')
-			break;
-		if (_strcmp(cmd, "./") == 0)
-			break;
-		if (stat(dir[num], &statbuff) == 0)
->>>>>>> 4babfc9b38214bbc2eee967ba59b373e9b15d370
 		{
-			free(value);
-			return(dir[num]);
+			free(path);
+			free(path_array);
+			return (new_path);
 		}
 		else
-			num++;
-		tok = strtok(NULL, TOK_DELIM);
-	} while (tok != NULL);
-	free (dir[num]);
-	free (value);
-	return (cmd);
+			new_path[0] = 0;
+		j++;
+	}
+	while (i < count)
+		free(path_array[i++]);
+	free(path_array);
+	free(path);
+	free(new_path);
+	return (0);
 }
