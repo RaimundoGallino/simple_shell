@@ -57,7 +57,7 @@ int reading(char *s, char *shellname)
 	char *command_arr;
 	int i = 0;
 	command_arr = malloc(sizeof(s));
-	if (command_arr = NULL)
+	if (command_arr == NULL)
 	{
 		free(s);
 		free(command_arr);
@@ -102,7 +102,7 @@ int execute(char *cmd, char *shellname)
 	const char *dir = cmd[1];
 
 	command = cmd[0];
-	free(cmd);
+	
 	if (_strcmp(command, "cd") == 0)
 	{
 		if (dir == NULL)
@@ -134,5 +134,6 @@ int execute(char *cmd, char *shellname)
 		exit(-1);
 	}
 	free(path);
+	free(cmd);
 	return (0);
 }
