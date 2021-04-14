@@ -35,5 +35,5 @@ int count_spaces( char *string)
         if (string[i] == ' ' && string[i + 1] != ' ' && string[i + 1] != '\n')
             count += 1;
     }
-    return(count);
+    return(count + 1);
 }
