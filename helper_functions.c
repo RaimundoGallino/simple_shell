@@ -104,33 +104,32 @@ char *_strcat(char *dest, char *src)
  */
 void *pathfinder(char *cmd)
 {
-	char *aux, *path, *check, *target;
-	int size, total_s;
-	struct stat buf;
+	const char *path = "PATH";
+	char *value, *tok;
+	char *dir[8];
+	struct stat statbuff;
+	int num = 0;
 
-	if (cmd == NULL)
-		return (NULL);
-	size = _strlen(cmd);
-
-	check = _getenv("PATH");
-	target = malloc(sizeof(check) * _strlen(check));
-	target = _strcpy(target, check);
-	path = strtok(target, ":");
-	while (path != NULL)
-	{
-		total_s = _strlen(path) + size + 2;
-		aux = malloc(total_s);
-		aux = _strcpy(aux, path);
-		aux = _strcat(aux, "/");
-		aux = _strcat(aux, cmd);
-
-		if (stat(aux, &buf) == 0 && buf.st_mode & X_OK)
+	value = _getenv(path);
+	tok = strtok(value, TOK_DELIM);
+	do{
+		dir[num] = NULL;
+		dir[num] = _strdup(tok);
+		dir[num] = strcat(dir[num], cmd);
+		if (cmd[0] == '/')
+			break;
+		if (_strcmp(cmd, "./") == 0)
+			break;
+		if (stat(dir[num], &statbuff) == 0)
 		{
-			free(target);
-			return(aux);
+			free(value);
+			return(dir[num]);
 		}
-		path = strtok(NULL, ": ");
-		free(aux);
-	}
-	return(NULL);
+		else
+			num++;
+		tok = strtok(NULL, TOK_DELIM);
+	} while (tok != NULL);
+	free (dir[num]);
+	free (value);
+	return (cmd);
 }
