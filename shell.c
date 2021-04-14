@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 		if (not_empty(string) == -1)
 		{
 			cleaned_string = clean_spaces(string);
+			free(string);
 			status = reading(strtok(cleaned_string, "\n"), argv[0]);
 		}
 	}
