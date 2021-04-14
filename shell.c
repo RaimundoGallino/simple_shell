@@ -144,5 +144,5 @@ int execute(char **cmd, char *shellname)
 		exit(-1);
 	}
 	free(path);
-	return (127);
+	return (0);
 }
