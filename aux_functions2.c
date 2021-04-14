@@ -58,33 +58,33 @@ int count_paths(char *string)
 }
 
 /**
- * count_paths - count spaces
- * @string: input string passed
+ * clean_spaces - Cleans all spaces.
+ * @buffer: input string passed
  * Return: count + 1
  */
 
 char *clean_spaces(char *buffer)
 {
-    int len, first_char_position, i = 0;
-    char *new_buffer, *true_buffer;
+	int len, first_char_position, i = 0;
+	char *new_buffer, *true_buffer;
 
-    new_buffer = _strdup(buffer);
-    if (new_buffer[0] != ' ')
-        return (new_buffer);
-    while (new_buffer[i] == ' ')
-        i++;
-    first_char_position = i;
-    while (new_buffer[i])
-        i++;
-    len = i - first_char_position;
-    true_buffer = malloc(sizeof(char) * (len + 1));
-    i = first_char_position;
-    while (new_buffer[i])
-    {
-        true_buffer[i - first_char_position] = new_buffer[i];
-        i++;
-    }
-    true_buffer[i - first_char_position] = '\0';
-    free(new_buffer);
-    return (true_buffer);
+	new_buffer = _strdup(buffer);
+	if (new_buffer[0] != ' ')
+		return (new_buffer);
+	while (new_buffer[i] == ' ')
+		i++;
+	first_char_position = i;
+	while (new_buffer[i])
+		i++;
+	len = i - first_char_position;
+	true_buffer = malloc(sizeof(char) * (len + 1));
+	i = first_char_position;
+	while (new_buffer[i])
+	{
+		true_buffer[i - first_char_position] = new_buffer[i];
+		i++;
+	}
+	true_buffer[i - first_char_position] = '\0';
+	free(new_buffer);
+	return (true_buffer);
 }
