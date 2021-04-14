@@ -59,6 +59,7 @@ int reading(char *s, char *shellname)
 	int i = 0;
 	int ret;
 	int count = count_spaces(s);
+	printf("count=%i\n", count);
 	
 	command_arr = malloc(sizeof(char *) * (count + 1));
 
