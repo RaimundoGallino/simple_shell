@@ -91,7 +91,7 @@ int reading(char *s, char *shellname)
 
 	ret = execute(command_arr, shellname);
 	i = 0;
-	while (i < count)
+	while (i < count - 1)
 		free(command_arr[i++]);
 	free(command_arr);
 	
