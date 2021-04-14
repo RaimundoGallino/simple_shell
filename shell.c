@@ -44,7 +44,6 @@ int main(int argc, char *argv[])
 			status = reading(strtok(cleaned_string, "\n"), argv[0], string);
 		}
 	}
-	free(string);
 	return (status);
 }
 
