@@ -100,9 +100,9 @@ int execute(char **cmd, char *shellname)
 	pid_t child;
 	char *command = NULL;
 	int status;
-	const char *dir = *cmd[1];
+	const char *dir = cmd[1];
 
-	command = *cmd[0];
+	command = cmd[0];
 	
 	if (_strcmp(command, "cd") == 0)
 	{
@@ -130,11 +130,11 @@ int execute(char **cmd, char *shellname)
 		wait(&status);
 	else if (child == 0 && _strcmp(command, "cd") != 0)
 	{
-		execve(path, *cmd, environ);
+		execve(path, cmd, environ);
 		perror("Error:");
 		exit(-1);
 	}
 	free(path);
-	free(*cmd);
+	free(cmd);
 	return (0);
 }
