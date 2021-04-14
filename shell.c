@@ -76,6 +76,7 @@ int reading(char *s, char *shellname, char *string)
 	if (_strcmp(s, "env") == 0)
 	{
 		free(s);
+		free(string);
 		free(command_arr);
 		return (_printenv());
 	}
