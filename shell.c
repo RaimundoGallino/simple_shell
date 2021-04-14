@@ -84,14 +84,12 @@ int reading(char *s, char *shellname)
 	if (command_arr == NULL)
 	{
 		free(s);
-		free(command_arr);
-
 	}
 	command_arr[i] = NULL;
 
 	ret = execute(command_arr, shellname);
 	i = 0;
-	while (i < count - 1)
+	while (i < count)
 		free(command_arr[i++]);
 	free(command_arr);
 	
