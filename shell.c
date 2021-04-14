@@ -61,7 +61,6 @@ int reading(char *s, char *shellname)
 	int i = 0;
 	int ret;
 	int count = count_spaces(s);
-	printf("count=%i\n", count);
 	
 	command_arr = malloc(sizeof(char *) * (count + 1));
 
@@ -81,7 +80,6 @@ int reading(char *s, char *shellname)
 	while (token)
 	{
 		command_arr[i] = _strdup(token);
-		printf("Command_arr: %i,%s\n", i, command_arr[i]);
 		i++;
 		token = strtok(NULL, " ");
 	}
@@ -97,7 +95,6 @@ int reading(char *s, char *shellname)
 	while (i < count)
 		free(command_arr[i++]);
 	free(command_arr);
-    printf("final i: %i,\n", i);
 	
 	return(ret);	
 }
