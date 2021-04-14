@@ -40,11 +40,11 @@ int main(int argc, char *argv[])
 
 		if (not_empty(string) == -1)
 		{
-			cleaned_string = clean_spaces(string);
-			
-			status = reading(strtok(cleaned_string, "\n"), argv[0]);
+			cleaned_string = clean_spaces(string);	
+			status = reading(strtok(cleaned_string, "\n"), argv[0], string);
 		}
 	}
+	free(string);
 	return (status);
 }
 
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
  * Return: 0.
  */
 
-int reading(char *s, char *shellname)
+int reading(char *s, char *shellname, char *string)
 {
 	char *token = NULL;
 	char **command_arr;
@@ -69,6 +69,7 @@ int reading(char *s, char *shellname)
 	if (_strcmp(s, "exit") == 0)
 	{
 		free(s);
+		free(string);
 		free(command_arr);
 		exit(0);
 	}

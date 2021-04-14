@@ -15,7 +15,7 @@ extern char **environ;
 
 void *pathfinder(char *cmd);
 
-int reading(char *s, char *shellname);
+int reading(char *s, char *shellname, char *string);
 
 int not_empty(char *input_buffer);
 
