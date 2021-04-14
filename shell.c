@@ -57,9 +57,11 @@ int reading(char *s, char *shellname)
 	char **command_arr;
 	int i = 0;
 	int ret;
+	int count = count_spaces(s);
 	
-	command_arr = malloc(sizeof(char *) * (count_spaces(s)) + 1);
-	
+
+	command_arr = malloc(sizeof(char *) * (count + 1));
+
 	token = strtok(s, " ");
 	if (_strcmp(s, "exit") == 0)
 	{
@@ -88,8 +90,8 @@ int reading(char *s, char *shellname)
 	command_arr[i] = NULL;
 
 	ret = execute(command_arr, shellname);
-
-	while (command_arr[i])
+	i = 0;
+	while (i < count)
 		free(command_arr[i++]);
 	free(command_arr);
 	
