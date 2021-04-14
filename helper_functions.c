@@ -111,10 +111,8 @@ void *pathfinder(char *cmd)
 
 	path_array = malloc(sizeof(char *) * (count + 1));
 	if (path_array == NULL)
-		return(NULL);
-
+		return (NULL);
 	path_tok = strtok(path, ":");
-	
 	if (_getenv("PATH")[0] == ':')
 	{
 		if (stat(cmd, &buf) == 0)
@@ -135,7 +133,6 @@ void *pathfinder(char *cmd)
 		path_array[i++] = path_tok;
 		path_tok = strtok(NULL, ":");
 	}
-
 	path_array[i] = '\0';
 	for (j = 0; path_array[j];)
 	{
@@ -144,7 +141,7 @@ void *pathfinder(char *cmd)
 		count_path = (_strlen(path_array[j]) + _strlen(aux) + 2);
 		new_path = malloc(sizeof(char) * count_path);
 		if (new_path == NULL)
-			return(NULL);
+			return (NULL);
 		_strcpy(new_path, path_array[j]);
 		_strcat(new_path, "/");
 		_strcat(new_path, aux);
@@ -159,6 +156,7 @@ void *pathfinder(char *cmd)
 			new_path[0] = 0;
 		j++;
 	}
+	i = 0;
 	while (i < count)
 		free(path_array[i++]);
 	free(path_array);
