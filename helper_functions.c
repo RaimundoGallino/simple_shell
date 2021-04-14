@@ -104,56 +104,33 @@ char *_strcat(char *dest, char *src)
  */
 void *pathfinder(char *cmd)
 {
-	char *path = _strdup(_getenv("PATH"));
-	int i = 0, j = 0, count = count_paths(path), count_path = 0;
-	char *path_tok, **path_array, *s2 = cmd, *aux = NULL, *new_path = NULL;
+	char *aux, *path, *check, *target;
+	int size, total_s;
 	struct stat buf;
 
-	path_array = malloc(sizeof(char *) * (count + 1));
-	if (path_array == NULL)
-		return(NULL);
+	if (cmd == NULL)
+		return (NULL);
+	size = _strlen(cmd);
 
-	path_tok = strtok(path, ":");
-	
-	if (_getenv("PATH")[0] == ':')
-		if (stat(cmd, &buf) == 0)
-			return (_strdup(cmd));
-
-	if (stat(cmd, &buf) == 0)
-		return (_strdup(cmd));
-	while (path_tok != NULL)
+	check = _getenv("PATH");
+	target = malloc(sizeof(check) * _strlen(check));
+	target = _strcpy(target, check);
+	path = strtok(target, ":");
+	while (path != NULL)
 	{
-		path_array[i++] = path_tok;
-		path_tok = strtok(NULL, ":");
-	}
+		total_s = _strlen(path) + size + 2;
+		aux = malloc(total_s);
+		aux = _strcpy(aux, path);
+		aux = _strcat(aux, "/");
+		aux = _strcat(aux, cmd);
 
-	path_array[i] = '\0';
-	for (j = 0; path_array[j];)
-	{
-		free(new_path);
-		aux = strtok(s2, "\n");
-		count_path = (_strlen(path_array[j]) + _strlen(aux) + 2);
-		new_path = malloc(sizeof(char) * count_path);
-		if (new_path == NULL)
-			return(NULL);
-		_strcpy(new_path, path_array[j]);
-		_strcat(new_path, "/");
-		_strcat(new_path, aux);
-		_strcat(new_path, "\0");
-		if (stat(new_path, &buf) == 0)
+		if (stat(aux, &buf) == 0 && buf.st_mode & X_OK)
 		{
-			free(path);
-			free(path_array);
-			return (new_path);
+			free(target);
+			return(aux);
 		}
-		else
-			new_path[0] = 0;
-		j++;
+		path = strtok(NULL, ": ");
+		free(aux);
 	}
-	while (i < count)
-		free(path_array[i++]);
-	free(path_array);
-	free(path);
-	free(new_path);
-	return (0);
+	return(NULL);
 }
