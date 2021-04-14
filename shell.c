@@ -131,7 +131,7 @@ int execute(char **cmd, char *shellname)
 		write(2, " :1 ", 5);
 		write(2, command, _strlen(command));
 		write(2, ": not found\n", 12);
-		return (0);
+		return (127);
 	}
 	child = fork();
 	if (child != 0)
