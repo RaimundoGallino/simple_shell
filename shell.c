@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 	size_t buffer = 0;
 	char *string = NULL;
 	ssize_t line = 0;
+	int status = 0;
 	(void) argc;
 
 	signal(SIGINT, stop_ctrl);
@@ -38,10 +39,10 @@ int main(int argc, char *argv[])
 
 		if (not_empty(string) == -1)
 		{
-			reading(strtok(string, "\n"), argv[0]);
+			status = reading(strtok(string, "\n"), argv[0]);
 		}
 	}
-	return (127);
+	return (status);
 }
 
 /**
@@ -131,7 +132,7 @@ int execute(char **cmd, char *shellname)
 		write(2, " :1 ", 5);
 		write(2, command, _strlen(command));
 		write(2, ": not found\n", 12);
-		return (0);
+		return (127);
 	}
 	child = fork();
 	if (child != 0)
@@ -143,5 +144,5 @@ int execute(char **cmd, char *shellname)
 		exit(-1);
 	}
 	free(path);
-	return (0);
+	return (127);
 }
