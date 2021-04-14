@@ -108,7 +108,7 @@ void *pathfinder(char *cmd)
 	int i = 0, j = 0, count = count_paths(path), count_path = 0;
 	char *path_tok, **path_array, *s2 = cmd, *aux = NULL, *new_path = NULL;
 	struct stat buf;
-	
+
 	path_array = malloc(sizeof(char *) * (count + 1));
 	if (path_array == NULL)
 		return(NULL);
@@ -131,11 +131,11 @@ void *pathfinder(char *cmd)
 	for (j = 0; path_array[j];)
 	{
 		free(new_path);
+		aux = strtok(s2, "\n");
 		count_path = (_strlen(path_array[j]) + _strlen(aux) + 2);
 		new_path = malloc(sizeof(char) * count_path);
 		if (new_path == NULL)
 			return(NULL);
-		aux = strtok(s2, "\n");
 		_strcpy(new_path, path_array[j]);
 		_strcat(new_path, "/");
 		_strcat(new_path, aux);
