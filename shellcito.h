@@ -37,6 +37,8 @@ char *_strcpy(char *dest, char *src);
 
 char *_strcat(char *dest, char *src);
 
+char *_strdup(char *str);
+
 void stop_ctrl(int s);
 
 void changing_tab(char *string);

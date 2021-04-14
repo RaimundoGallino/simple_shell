@@ -56,7 +56,7 @@ int reading(char *s, char *shellname)
 	char *token = NULL;
 	char **command_arr;
 	int i = 0;
-	char *ret;
+	int ret;
 	
 	command_arr = malloc(sizeof(char *) * (count_spaces(s)) + 1);
 	*command_arr = NULL;
@@ -93,7 +93,7 @@ int reading(char *s, char *shellname)
 		free(command_arr[i++]);
 	free(command_arr);
 	
-	return (ret);	
+	return(ret);	
 }
 
 /**
