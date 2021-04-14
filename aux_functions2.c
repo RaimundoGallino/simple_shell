@@ -51,7 +51,7 @@ int count_paths( char *string)
 
     for (; i < len; i++)
     {
-        if (string[i] == ':' && string[i + 1] != ':')
+        if (string[i] == ':')
             count += 1;
     }
     return(count + 1);
