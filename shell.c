@@ -41,12 +41,7 @@ int main(int argc, char *argv[])
 		if (not_empty(string) == -1)
 		{
 			cleaned_string = clean_spaces(string);
-			if (_strcmp(cleaned_string, "exit") == 0)
-			{
-				free(string);
-				free(cleaned_string);
-				exit(0);
-			}
+			
 			status = reading(strtok(cleaned_string, "\n"), argv[0]);
 		}
 	}
@@ -71,6 +66,12 @@ int reading(char *s, char *shellname)
 	command_arr = malloc(sizeof(char *) * (count + 1));
 
 	token = strtok(s, " ");
+	if (_strcmp(s, "exit") == 0)
+	{
+		free(s);
+		free(command_arr);
+		exit(0);
+	}
 
 	if (_strcmp(s, "env") == 0)
 	{
