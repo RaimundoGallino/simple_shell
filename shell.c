@@ -59,7 +59,7 @@ int reading(char *s, char *shellname)
 	int ret;
 	
 	command_arr = malloc(sizeof(char *) * (count_spaces(s)) + 1);
-	*command_arr = NULL;
+	
 	token = strtok(s, " ");
 	if (_strcmp(s, "exit") == 0)
 	{
