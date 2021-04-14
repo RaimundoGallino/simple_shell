@@ -127,7 +127,6 @@ int execute(char **cmd, char *shellname)
 	}
 	path = pathfinder(command);
 
-	printf("path=%s", path);
 	if (path == NULL && _strcmp(command, "cd") != 0)
 	{
 		write(2, shellname, _strlen(shellname));
