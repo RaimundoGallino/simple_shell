@@ -68,7 +68,7 @@ char *clean_spaces(char *buffer)
     int len, first_char_position, i = 0;
     char *new_buffer, *true_buffer;
 
-    new_buffer = str_dup(buffer);
+    new_buffer = _strdup(buffer);
     if (new_buffer[0] != ' ')
         return (new_buffer);
     while (new_buffer[i] == ' ')
