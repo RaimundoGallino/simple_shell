@@ -69,7 +69,7 @@ int reading(char *s, char *shellname)
 	{
 		free(s);
 		free(command_arr);
-		exit(-1);
+		exit(0);
 	}
 
 	if (_strcmp(s, "env") == 0)
