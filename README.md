@@ -9,7 +9,9 @@ This simple shell was entirely crafted by our programming hands with the purpose
 - **shell.c**  ---!> This file contains the basic functions needed to make the shell loop to stay continuously open and to do the basic proceses of a shell: get the input, read it and execute it.
 - **helper_functions.c** ---!> In this file are some functions needed to make the previous file work as its intended.
 - **aux_functions.c** ---!> In this file are some extra functions that emulate some of the functions of the standard library but coded by ourselves.
-- **man_1_simple_shell** ---!> A man page you can run to see the features and functionalities descriptions of this simple shell 
+- **aux_functions2.c** ---!> More functions that emulate part of the standard library, only made by ourselves.
+- **man_1_simple_shell** ---!> A man page you can run to see the features and functionalities descriptions of this simple shell
+- **shellcito.h** ---!> C header file. Includes function prototypes, libraries and external variables.
 - **AUTHORS** ---!> This file lists all individuals having contributed content to the repository.
 - **README.md** ---!> What you are reading.
 
