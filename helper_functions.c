@@ -105,8 +105,8 @@ char *_strcat(char *dest, char *src)
 void *pathfinder(char *cmd)
 {
 	char *path = _strdup(_getenv("PATH"));
-	int i = 0, j = 0, count = count_paths(path), count_path = 0;
-	char *path_tok, **path_array, *s2 = cmd, *aux = NULL, *new_path = NULL;
+	int i = 0, j = 0, count = count_paths(path); 
+	char *path_tok, **path_array, *s2 = cmd;
 	char *return_path = NULL;
 	struct stat buf;
 
@@ -147,7 +147,7 @@ void *pathfinder(char *cmd)
 			return (return_path);
 		}
 		else
-			new_path[0] = 0;
+			return_path[0] = 0;
 		j++;
 	}
 	i = 0;
