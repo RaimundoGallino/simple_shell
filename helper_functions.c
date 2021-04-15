@@ -150,6 +150,7 @@ void *pathfinder(char *cmd)
 			new_path[0] = 0;
 		j++;
 	}
+	i = 0;
 	while (i < count)
 		free(path_array[i++]);
 	free(path_array);
