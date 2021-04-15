@@ -49,4 +49,6 @@ int count_paths( char *string);
 
 char *clean_spaces(char *buffer);
 
+int parent_wait(int child_pid, int *status);
+
 #endif /* SHELLCITO_H */
