@@ -2,7 +2,7 @@
 
 ![markdown poster by Raimundo Gallino](/Extras/seashellRender7.png)
 
-This simple shell was entirely crafted by our programming hands with the purposes of expanding our knowledge on C and linux OS, and obviously to pass Holberton's course. We explore most of the functionalities of the a shell of a linux OS including the most commonly used "ls", "pwd", "cd" and more. In this readme we will explain how, install it, how to run it and all the posibilites available within the boundaries  of our simple shell.
+This simple shell was entirely crafted by our programming hands with the purpose of expanding our knowledge on C and Linux, and obviously to pass Holberton's course. We explore most of the functionalities of the a shell of a linux-based OS including the most commonly used "ls", "pwd", "cd" and more. In this readme we will explain how, install it, how to run it and all the posibilites available within the boundaries  of our simple shell.
 
 
 # Files included
@@ -43,6 +43,17 @@ Or displaying the path of the current directory using the pwd command:
 $hsh> pwd 
 /root/your_local_dir/simple_shell
 ```
+## How it works
+The basic structure of the shell is mainly devided by four steps. 
+
+The first one consists on generating an infinite loop to keep the shell open and recibing the input lines. If nothing is recieved, it will continue looping. 
+
+When an input line is recieved it will be sent to the second step: the reading. This step will read the string and parse it in to tokens. After that, the shell is intended to execute the input recieved.
+
+In order to do that, the input parsed in tokens is passed to a function that searches for the correct path. Checking if the executable files of the command passed exist somewhere in the path of the OS (built in command definitions will be handled by the shell itself). Once we have the the full path of the command, the next step is to execute it. 
+
+If everything went right in the previous steps the command will be executed as it is defined. After the execution of the program, the shell will return to its initial state awaiting any input to be recieved. Below this is a brief (really brief) flowchart of how the program is structured in order to achieve a better understanding of its inner workings.
+
 
 
 ## Contributors
