@@ -43,6 +43,9 @@ Or displaying the path of the current directory using the pwd command:
 $hsh> pwd 
 /root/your_local_dir/simple_shell
 ```
+## How it works
+The basic structure of the shell is mainly devided by four steps. The first one consists on generating an infinite loop to keep the shell open and recibing the input lines. If nothing is recibed, it will continue looping. When an input line is recibed it will be sent to the second step: the reading. This step will read the string and parse it in to tokens. After that, the shell is intended to execute the input recibed. In order to do that, the input parsed in tokens is passed to a function that searches for the correct path. Checking if the executable files of the command passed exist somewhere in the path of the OS (built in command definitions will be handeled by the shell itself). Once we have the the full path of the command, the next step is to execute it. If everything went right in the previous steps the command will be executed as it is definided. Below this is a breif (really breif) fowchart of how the program is structured to achieve a better understunding.
+
 
 
 ## Contributors
