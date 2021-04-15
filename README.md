@@ -55,7 +55,7 @@ In order to do that, the input parsed in tokens is passed to a function that sea
 If everything went right in the previous steps the command will be executed as it is defined. After the execution of the program, the shell will return to its initial state awaiting any input to be recieved. Below this is a brief (really brief) flowchart of how the program is structured in order to achieve a better understanding of its inner workings.
 
 <p align="center">
-  <img width="250" height="250" src="/Extras/Diagramaenblanco.png">
+  <img src="/Extras/Diagramaenblanco.png">
 </p>
 
 ## Contributors
