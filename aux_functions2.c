@@ -88,3 +88,24 @@ char *clean_spaces(char *buffer)
     free(new_buffer);
     return (true_buffer);
 }
+
+/**
+ * parent_wait - count spaces
+ * @child_pid: child id number
+ * @status: int status of the process
+ * Return: 0 if it fails 1 if not
+ */
+int parent_wait(int child_pid, int *status)
+{
+    if (waitpid(child_pid, status, 0) == -1)
+    {
+        perror("Waitpid failed");
+        return (0);
+    }
+    if (WIFEXITED(*status))
+    {
+        return(WEXITSTATUS(*status));
+    }
+
+    return (1);
+} 

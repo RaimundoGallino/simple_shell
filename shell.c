@@ -114,7 +114,7 @@ int execute(char **cmd, char *shellname)
 	char *path = NULL;
 	pid_t child;
 	char *command = NULL;
-	int status;
+	int status, stat;
 	const char *dir = cmd[1];
 
 	command = cmd[0];
@@ -143,7 +143,7 @@ int execute(char **cmd, char *shellname)
 	}
 	child = fork();
 	if (child != 0)
-		wait(&status);
+		stat = parent_wait(child, &status);
 	else if (child == 0 && _strcmp(command, "cd") != 0)
 	{
 		execve(path, cmd, environ);
@@ -151,5 +151,5 @@ int execute(char **cmd, char *shellname)
 		exit(-1);
 	}
 	free(path);
-	return (0);
+	return (stat);
 }
