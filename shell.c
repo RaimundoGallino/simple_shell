@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		{
 			if (isatty(STDIN_FILENO) == 1)
 				write(1, "\n", 1);
-				
+
 			free(string);
 			break;
 		}
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
 		if (not_empty(string) == -1)
 		{
-			cleaned_string = clean_spaces(string);	
+			cleaned_string = clean_spaces(string);
 			status = reading(strtok(cleaned_string, "\n"), argv[0], string);
 		}
 	}
@@ -51,6 +51,7 @@ int main(int argc, char *argv[])
  * reading - parser whatever you just wrote on the shell
  * @s: statement to be read
  * @shellname: name of the shell (previously declared on struct)
+ * @string: string to be passed
  * Return: 0.
  */
 
@@ -61,7 +62,7 @@ int reading(char *s, char *shellname, char *string)
 	int i = 0;
 	int ret;
 	int count = count_spaces(s);
-	
+
 	command_arr = malloc(sizeof(char *) * (count + 1));
 
 	token = strtok(s, " ");
@@ -98,8 +99,8 @@ int reading(char *s, char *shellname, char *string)
 	while (i < count)
 		free(command_arr[i++]);
 	free(command_arr);
-	
-	return(ret);	
+
+	return (ret);
 }
 
 /**
@@ -118,7 +119,7 @@ int execute(char **cmd, char *shellname)
 	const char *dir = cmd[1];
 
 	command = cmd[0];
-	
+
 	if (_strcmp(command, "cd") == 0)
 	{
 		if (dir == NULL)

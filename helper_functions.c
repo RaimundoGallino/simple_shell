@@ -23,9 +23,9 @@ void stop_ctrl(int s)
 
 char *_getenv(const char *n)
 {
-	char **ePtr;/* pointer into list of environ. vars. */
-	char *cPtr;/* point into one environment variable */
-	const char *nPtr;/* pointer into name */
+	char **ePtr;
+	char *cPtr;
+	const char *nPtr;
 
 	for (ePtr = environ; *ePtr != NULL; ePtr++)
 	{
@@ -50,6 +50,7 @@ char *_getenv(const char *n)
  *
  * Return: Nothing.
  */
+
 char *_strdup(char *str)
 {
 	char *str2;
@@ -111,10 +112,9 @@ void *pathfinder(char *cmd)
 
 	path_array = malloc(sizeof(char *) * (count + 1));
 	if (path_array == NULL)
-		return(NULL);
+		return (NULL);
 
 	path_tok = strtok(path, ":");
-	
 	if (_getenv("PATH")[0] == ':')
 	{
 		if (stat(cmd, &buf) == 0)
@@ -144,7 +144,7 @@ void *pathfinder(char *cmd)
 		count_path = (_strlen(path_array[j]) + _strlen(aux) + 2);
 		new_path = malloc(sizeof(char) * count_path);
 		if (new_path == NULL)
-			return(NULL);
+			return (NULL);
 		_strcpy(new_path, path_array[j]);
 		_strcat(new_path, "/");
 		_strcat(new_path, aux);
