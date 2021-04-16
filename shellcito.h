@@ -43,9 +43,9 @@ void stop_ctrl(int s);
 
 void changing_tab(char *string);
 
-int count_spaces( char *string);
+int count_spaces(char *string);
 
-int count_paths( char *string);
+int count_paths(char *string);
 
 char *clean_spaces(char *buffer);
 

@@ -1,4 +1,4 @@
-#include "shellcito.h"
+B#include "shellcito.h"
 
 /**
  * changing_tab - changes tabs for spaces
@@ -59,7 +59,7 @@ int count_paths(char *string)
 }
 
 /**
- * count_spaces - count spaces
+ * clean_spaces - count spaces
  * @buffer: input string passed
  * Return: count + 1
  */

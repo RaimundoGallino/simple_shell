@@ -39,7 +39,7 @@ Examples of Environment Variables
                The current directory address
      ENV
                Display the environment variables.
-               
+
 .SH SEE ALSO
 .I sh(1), execve(2), signal(2), exit(2), isatty(3).
 .SH Bugs
